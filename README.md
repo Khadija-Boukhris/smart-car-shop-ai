@@ -32,3 +32,22 @@ Exemples de questions possibles :
 
 ```text
 Quelle voiture recommander pour un client avec un budget de 100000 MAD ?
+
+## 3. Architecture du projet
+React Frontend
+http://localhost:3000
+
+        ↓
+
+Spring Boot Backend
+http://localhost:9090
+
+        ↓
+
+MariaDB Database
+localhost:3307
+
+        ↓
+
+Ollama AI Service
+http://localhost:11434
