@@ -61,7 +61,7 @@ http://localhost:11434
 
 ```bash
 git clone <URL_DU_REPOSITORY>
-cd SpringDataRest
+cd smart-car-shop-ai
 ```
 
 ---
@@ -98,13 +98,11 @@ ollama
 
 ---
 
-### 4. Télécharger le modèle Ollama
+### 4. Vérifier le modèle Ollama
+Le modèle `llama3.2:1b` est téléchargé automatiquement au premier démarrage grâce à Spring AI.
 
-Si le modèle n’est pas encore installé, exécuter :
+Le premier lancement peut prendre plusieurs minutes, car Docker démarre Ollama puis Spring Boot télécharge le modèle si celui-ci n’est pas encore présent.
 
-```bash
-docker exec -it ollama ollama pull llama3.2:1b
-```
 
 Vérifier que le modèle est bien installé :
 
