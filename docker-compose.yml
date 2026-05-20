@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 
 services:
   springboot-app:
@@ -12,8 +12,11 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: root
       MYSQL_PORT: 3306
+      OLLAMA_BASE_URL: http://ollama:11434
+      OLLAMA_MODEL: llama3.2:1b
     depends_on:
       - mariadb
+      - ollama
 
   mariadb:
     container_name: mariadb
@@ -26,5 +29,15 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
+  ollama:
+    container_name: ollama
+    hostname: ollama
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
 volumes:
   db_data:
+  ollama_data:

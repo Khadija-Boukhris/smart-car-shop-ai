@@ -18,6 +18,9 @@ class NavigationBar extends React.Component {
         <Nav className="mr-auto">
           <Link to="/add" className="nav-link">Ajouter Voiture</Link>
           <Link to="/list" className="nav-link">Liste Voitures</Link>
+          <Link to={"ai"} className="nav-link">
+            Assistant IA
+          </Link>
         </Nav>
       </Navbar>
     );

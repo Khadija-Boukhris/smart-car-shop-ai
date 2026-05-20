@@ -28,7 +28,7 @@ export default class Voiture extends Component {
   componentDidMount() {
     const voitureId = this.props.match.params.id;
     if (voitureId) {
-      axios.get('http://localhost:8080/voitures/' + voitureId)
+      axios.get('http://localhost:9090/voitures/' + voitureId)
         .then(response => {
           if (response.data != null) {
             this.setState({
@@ -69,7 +69,7 @@ export default class Voiture extends Component {
     };
 
     if (this.state.id) {
-      axios.put('http://localhost:8080/voitures/' + this.state.id, voiture)
+      axios.put('http://localhost:9090/voitures/' + this.state.id, voiture)
         .then(response => {
           if (response.data != null) {
             this.setState({ show: true });
@@ -78,7 +78,7 @@ export default class Voiture extends Component {
           }
         });
     } else {
-      axios.post('http://localhost:8080/voitures', voiture)
+      axios.post('http://localhost:9090/voitures', voiture)
         .then(response => {
           if (response.data != null) {
             this.setState(this.initialState);

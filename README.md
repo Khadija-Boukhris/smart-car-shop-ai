@@ -1,17 +1,38 @@
-# SpringDataRest - Lab complet Voitures / Propriétaires
+# Smart Car Shop - Spring Boot / React / MariaDB / Docker / Spring AI Ollama
 
-Projet Spring Boot prêt à ouvrir dans IntelliJ IDEA.
+## 1. Présentation du projet
 
-## Lancer le projet
+Smart Car Shop est une application full-stack de gestion intelligente d’un magasin de voitures.
 
-1. Ouvrir le dossier `SpringDataRest` avec IntelliJ IDEA.
-2. Attendre le téléchargement Maven.
-3. Lancer la classe :
+Le projet permet de gérer :
+- les voitures disponibles dans le stock ;
+- les propriétaires ;
+- une API REST avec Spring Boot ;
+- une interface web avec React ;
+- une base de données MariaDB dockerisée ;
+- une couche IA métier avec Spring AI et Ollama.
 
-```java
-org.cours.SpringDataRest
-```
+L’objectif principal est de montrer une intégration complète entre backend, frontend, base de données, Docker et intelligence artificielle appliquée au métier.
 
+---
+
+## 2. Intégration de l’IA côté métier
+
+L’IA n’est pas utilisée uniquement comme une fonctionnalité technique.  
+Elle est intégrée comme une aide à la décision métier pour un magasin de voitures.
+
+Elle permet notamment de :
+
+- recommander des voitures selon le budget, l’année minimale, la marque préférée, la couleur préférée et l’usage prévu ;
+- assister le vendeur dans le conseil client ;
+- répondre à des questions métier sur le stock automobile ;
+- exploiter les données réelles stockées dans MariaDB ;
+- générer des réponses en langage naturel grâce à Ollama.
+
+Exemples de questions possibles :
+
+```text
+Quelle voiture recommander pour un client avec un budget de 100000 MAD ?
 ## Authentification Spring Security
 
 Le lab active Basic Auth avec :
@@ -37,54 +58,3 @@ User     : sa
 Password : vide
 ```
 
-## REST manuel
-
-GET :
-
-```text
-http://localhost:8080/voitures
-```
-
-## Spring Data REST
-
-Endpoint racine :
-
-```text
-http://localhost:8080/api
-```
-
-Liste des voitures :
-
-```text
-http://localhost:8080/api/voitures
-```
-
-Recherche par couleur :
-
-```text
-http://localhost:8080/api/voitures/search/findByCouleur?couleur=Rouge
-```
-
-Recherche par modèle :
-
-```text
-http://localhost:8080/api/voitures/search/findByModele?modele=Fiesta
-```
-
-## Documentation OpenAPI / Swagger UI
-
-```text
-http://localhost:8080/swagger-ui/index.html
-http://localhost:8080/v3/api-docs
-```
-
-## Tests
-
-Classes de test ajoutées :
-
-```text
-SpringDataRestApplicationTests
-VoitureRepoTest
-```
-
-Lance-les depuis IntelliJ avec clic droit → Run.

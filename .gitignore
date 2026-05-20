@@ -15,8 +15,9 @@ target/
 .mysqlenv
 
 # React
-reactjs/node_modules/
-reactjs/build/
+src/main/webapp/reactjs/node_modules/
+src/main/webapp/reactjs/build/
+src/main/webapp/reactjs/.cache/
 
 # OS
 .DS_Store

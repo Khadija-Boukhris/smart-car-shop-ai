@@ -7,7 +7,6 @@ import axios from 'axios';
 import MyToast from './MyToast';
 
 const API_URL = 'http://localhost:9090/voitures';
-
 export default class VoitureListe extends Component {
   constructor(props) {
     super(props);

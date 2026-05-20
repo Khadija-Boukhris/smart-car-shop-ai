@@ -7,6 +7,7 @@ import Bienvenue from './Components/Bienvenue';
 import Footer from './Components/Footer';
 import Voiture from './Components/Voiture';
 import VoitureListe from './Components/VoitureListe';
+import AssistantIA from './Components/AssistantIA';
 
 function App() {
   const marginTop = {
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/add" exact component={Voiture} />
                 <Route path="/edit/:id" exact component={Voiture} />
                 <Route path="/list" exact component={VoitureListe} />
+                <Route path="/ai" exact component={AssistantIA} />
               </Switch>
             </Col>
           </Row>
