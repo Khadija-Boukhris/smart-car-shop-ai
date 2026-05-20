@@ -1,0 +1,8 @@
+target/
+.git/
+.idea/
+*.iml
+*.log
+
+src/main/webapp/reactjs/node_modules/
+src/main/webapp/reactjs/build/
