@@ -145,7 +145,7 @@ kubectl version --client
 
 # Partie A - Lancement avec Docker Compose
 
-Cette partie permet de lancer le backend Spring Boot, MariaDB et Ollama avec Docker Compose.
+Cette partie permet de lancer le backend et front Spring Boot, MariaDB et Ollama avec Docker Compose.
 
 ## 1. Cloner le projet
 
@@ -166,7 +166,7 @@ docker compose up -d --build
 
 Cette commande lance les services suivants :
 
-- `springboot-app` : backend Spring Boot ;
+- `springboot-app` : backend et frontend Spring Boot ;
 - `mariadb` : base de données MariaDB ;
 - `ollama` : serveur local d’IA.
 
@@ -182,6 +182,7 @@ Vous devez voir les containers suivants en état `Up` :
 
 ```text
 springboot-app
+springdatarest-frontend
 mariadb
 ollama
 ```
@@ -232,28 +233,12 @@ http://localhost:9090/swagger-ui/index.html
 
 ## 6. Lancer le frontend React
 
-Dans un nouveau terminal, aller dans le dossier React :
+Le frontend React est également dockerisé et lancé automatiquement avec Docker Compose.
+
+Après l’exécution de :
 
 ```bash
-cd src/main/webapp/reactjs
-```
-
-Installer les dépendances :
-
-```bash
-npm install
-```
-
-Lancer le frontend :
-
-```bash
-npm start
-```
-
-Sur Windows PowerShell, si `npm start` est bloqué par la politique d’exécution des scripts, utiliser :
-
-```bash
-npm.cmd start
+docker compose up -d --build
 ```
 
 L’application React sera disponible sur :

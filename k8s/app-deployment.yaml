@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smart-car-shop
+  labels:
+    app: smart-car-shop
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: smart-car-shop
+  template:
+    metadata:
+      labels:
+        app: smart-car-shop
+    spec:
+      containers:
+        - name: smart-car-shop
+          image: smart-car-shop-ai:1.0
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8082
+          env:
+            - name: MYSQL_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: mariadb-config
+                  key: host
+            - name: MYSQL_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: mariadb-config
+                  key: port
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-secret
+                  key: username
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mariadb-secret
+                  key: password
+            - name: OLLAMA_BASE_URL
+              value: http://ollama:11434
+            - name: OLLAMA_MODEL
+              value: llama3.2:1b
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: smart-car-shop-svc
+spec:
+  selector:
+    app: smart-car-shop
+  ports:
+    - protocol: TCP
+      port: 8082
+      targetPort: 8082
+  type: NodePort

@@ -18,6 +18,14 @@ services:
       ollama:
         condition: service_healthy
 
+  frontend:
+    container_name: smart-car-shop-frontend
+    build: ./src/main/webapp/reactjs
+    ports:
+      - "3000:80"
+    depends_on:
+      - springboot-app
+
   mariadb:
     container_name: mariadb
     image: mariadb
